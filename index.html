@@ -953,6 +953,52 @@ footer {
 .verify-result.fail h4 { color: var(--crimson); }
 .verify-result p { font-size: 0.78rem; color: var(--text-soft); }
 
+/* ===== UPI APP BRAND BUTTONS ===== */
+.upi-apps-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px;
+}
+.upi-app-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; border-radius: 13px;
+  border: 1.5px solid var(--border-light);
+  background: white; cursor: pointer; transition: all 0.25s;
+  font-family: 'DM Sans', sans-serif; width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04); text-align: left;
+}
+.upi-app-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+.upi-brand-icon {
+  width: 38px; height: 38px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; overflow: hidden;
+}
+.upi-brand-label { font-size: 0.8rem; font-weight: 700; line-height: 1.2; }
+.upi-brand-sub { font-size: 0.6rem; color: var(--text-faint); margin-top: 1px; }
+
+/* Individual brand colors */
+.btn-gpay { border-color: rgba(66,133,244,0.3); }
+.btn-gpay:hover { border-color: rgba(66,133,244,0.6); background: rgba(66,133,244,0.04); }
+.btn-gpay .upi-brand-label { color: #4285F4; }
+
+.btn-phonepe { border-color: rgba(99,40,166,0.3); }
+.btn-phonepe:hover { border-color: rgba(99,40,166,0.6); background: rgba(99,40,166,0.04); }
+.btn-phonepe .upi-brand-label { color: #6328A6; }
+
+.btn-paytm { border-color: rgba(0,113,179,0.3); }
+.btn-paytm:hover { border-color: rgba(0,113,179,0.6); background: rgba(0,113,179,0.04); }
+.btn-paytm .upi-brand-label { color: #0071B3; }
+
+.btn-bhim { border-color: rgba(255,98,0,0.3); }
+.btn-bhim:hover { border-color: rgba(255,98,0,0.6); background: rgba(255,98,0,0.04); }
+.btn-bhim .upi-brand-label { color: var(--saffron); }
+
+.btn-amazonpay { border-color: rgba(255,153,0,0.3); }
+.btn-amazonpay:hover { border-color: rgba(255,153,0,0.6); background: rgba(255,153,0,0.04); }
+.btn-amazonpay .upi-brand-label { color: #FF9900; }
+
+.btn-cred { border-color: rgba(30,30,30,0.25); }
+.btn-cred:hover { border-color: rgba(30,30,30,0.5); background: rgba(30,30,30,0.03); }
+.btn-cred .upi-brand-label { color: #1A1A1A; }
+
 /* ===== TOAST ===== */
 .toast {
   position: fixed; bottom: 24px; right: 24px; z-index: 99999;
@@ -1051,6 +1097,9 @@ footer {
 .empty-state h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
 .empty-state p { font-size: 0.82rem; color: var(--text-soft); }
 
+/* Amount error highlight */
+.amount-error { border-color: rgba(184,20,20,0.5) !important; box-shadow: 0 0 0 4px rgba(184,20,20,0.08) !important; }
+
 /* Animations */
 @keyframes fadeInDown { from{opacity:0;transform:translateY(-18px);} to{opacity:1;transform:translateY(0);} }
 @keyframes fadeInUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
@@ -1081,10 +1130,12 @@ footer {
   .search-bar{max-width:100%;width:100%;}
   nav{padding:0 4%;}
   .steps-grid::before{display:none;}
+  .upi-apps-grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:480px){
   .guarantee-pill{flex-direction:column;text-align:center;}
   .manifesto-grid,.promises-grid{grid-template-columns:1fr;}
+  .upi-apps-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -1292,7 +1343,7 @@ footer {
     <div class="promise-card reveal">
       <div class="promise-icon">📸</div>
       <h3>Verified Proof of Resolution</h3>
-      <p>We don't close a problem until resolution is photographic-ally verified and confirmed by at least 3 local community members. Donors receive video proof.</p>
+      <p>We don't close a problem until resolution is photographically verified and confirmed by at least 3 local community members. Donors receive video proof.</p>
       <span class="promise-tag">VERIFIED OUTCOME</span>
     </div>
     <div class="promise-card reveal">
@@ -1475,76 +1526,16 @@ footer {
   </div>
 
   <div class="manifesto-grid">
-    <div class="manifesto-card reveal">
-      <div class="manifesto-num">01</div>
-      <div class="manifesto-icon">🏛️</div>
-      <h3>Right to Responsive Government</h3>
-      <p>Every citizen deserves a government that responds within 30 days. We demand mandatory response timelines enshrined in law.</p>
-      <span class="manifesto-badge">DEMAND</span>
-    </div>
-    <div class="manifesto-card reveal">
-      <div class="manifesto-num">02</div>
-      <div class="manifesto-icon">💰</div>
-      <h3>Public Fund Transparency</h3>
-      <p>All government expenditure above ₹1 lakh must be publicly auditable in real-time. No secret funds, no discretionary spending without accountability.</p>
-      <span class="manifesto-badge">REFORM</span>
-    </div>
-    <div class="manifesto-card reveal">
-      <div class="manifesto-num">03</div>
-      <div class="manifesto-icon">🚰</div>
-      <h3>Basic Services as Fundamental Rights</h3>
-      <p>Clean water, electricity, roads, and sanitation are not privileges — they are fundamental rights. Denial of these services is a punishable offence.</p>
-      <span class="manifesto-badge">RIGHTS</span>
-    </div>
-    <div class="manifesto-card reveal">
-      <div class="manifesto-num">04</div>
-      <div class="manifesto-icon">⚖️</div>
-      <h3>Zero Tolerance for Corruption</h3>
-      <p>Corruption in civic work is theft from the public. We demand whistleblower protection, mandatory asset disclosure, and fast-track courts for civic corruption.</p>
-      <span class="manifesto-badge">JUSTICE</span>
-    </div>
-    <div class="manifesto-card reveal">
-      <div class="manifesto-num">05</div>
-      <div class="manifesto-icon">📚</div>
-      <h3>Equal Education for Every Child</h3>
-      <p>Government schools must match private school infrastructure. Every child deserves working toilets, computers, books, and qualified teachers — non-negotiable.</p>
-      <span class="manifesto-badge">EDUCATION</span>
-    </div>
-    <div class="manifesto-card reveal">
-      <div class="manifesto-num">06</div>
-      <div class="manifesto-icon">🏥</div>
-      <h3>Accessible Public Healthcare</h3>
-      <p>Every government hospital must have essential medicines in stock at all times. Stockouts are a criminal negligence. Citizens deserve dignity in healthcare.</p>
-      <span class="manifesto-badge">HEALTH</span>
-    </div>
-    <div class="manifesto-card reveal">
-      <div class="manifesto-num">07</div>
-      <div class="manifesto-icon">🌳</div>
-      <h3>Clean Environment as a Right</h3>
-      <p>No illegal dumping grounds. No toxic industrial discharge near residential areas. Environmental violations must carry immediate criminal penalties.</p>
-      <span class="manifesto-badge">ENVIRONMENT</span>
-    </div>
-    <div class="manifesto-card reveal">
-      <div class="manifesto-num">08</div>
-      <div class="manifesto-icon">📱</div>
-      <h3>Digital Governance Now</h3>
-      <p>All civic services — complaints, FIR filing, birth certificates, permits — must be accessible online within 24 hours. Digital India starts with working systems.</p>
-      <span class="manifesto-badge">DIGITAL</span>
-    </div>
-    <div class="manifesto-card reveal">
-      <div class="manifesto-num">09</div>
-      <div class="manifesto-icon">👮</div>
-      <h3>Police Accountability</h3>
-      <p>Every police station must accept complaints without discrimination. Body cameras mandatory. Complaint tracking systems open to public audit.</p>
-      <span class="manifesto-badge">ACCOUNTABILITY</span>
-    </div>
-    <div class="manifesto-card reveal">
-      <div class="manifesto-num">10</div>
-      <div class="manifesto-icon">🗳️</div>
-      <h3>Community Voice in Local Governance</h3>
-      <p>Ward-level budgets decided with mandatory citizen participation. No infrastructure project can be approved without a public hearing. Gram Sabha empowerment now.</p>
-      <span class="manifesto-badge">DEMOCRACY</span>
-    </div>
+    <div class="manifesto-card reveal"><div class="manifesto-num">01</div><div class="manifesto-icon">🏛️</div><h3>Right to Responsive Government</h3><p>Every citizen deserves a government that responds within 30 days. We demand mandatory response timelines enshrined in law.</p><span class="manifesto-badge">DEMAND</span></div>
+    <div class="manifesto-card reveal"><div class="manifesto-num">02</div><div class="manifesto-icon">💰</div><h3>Public Fund Transparency</h3><p>All government expenditure above ₹1 lakh must be publicly auditable in real-time. No secret funds, no discretionary spending without accountability.</p><span class="manifesto-badge">REFORM</span></div>
+    <div class="manifesto-card reveal"><div class="manifesto-num">03</div><div class="manifesto-icon">🚰</div><h3>Basic Services as Fundamental Rights</h3><p>Clean water, electricity, roads, and sanitation are not privileges — they are fundamental rights. Denial of these services is a punishable offence.</p><span class="manifesto-badge">RIGHTS</span></div>
+    <div class="manifesto-card reveal"><div class="manifesto-num">04</div><div class="manifesto-icon">⚖️</div><h3>Zero Tolerance for Corruption</h3><p>Corruption in civic work is theft from the public. We demand whistleblower protection, mandatory asset disclosure, and fast-track courts for civic corruption.</p><span class="manifesto-badge">JUSTICE</span></div>
+    <div class="manifesto-card reveal"><div class="manifesto-num">05</div><div class="manifesto-icon">📚</div><h3>Equal Education for Every Child</h3><p>Government schools must match private school infrastructure. Every child deserves working toilets, computers, books, and qualified teachers — non-negotiable.</p><span class="manifesto-badge">EDUCATION</span></div>
+    <div class="manifesto-card reveal"><div class="manifesto-num">06</div><div class="manifesto-icon">🏥</div><h3>Accessible Public Healthcare</h3><p>Every government hospital must have essential medicines in stock at all times. Stockouts are criminal negligence. Citizens deserve dignity in healthcare.</p><span class="manifesto-badge">HEALTH</span></div>
+    <div class="manifesto-card reveal"><div class="manifesto-num">07</div><div class="manifesto-icon">🌳</div><h3>Clean Environment as a Right</h3><p>No illegal dumping grounds. No toxic industrial discharge near residential areas. Environmental violations must carry immediate criminal penalties.</p><span class="manifesto-badge">ENVIRONMENT</span></div>
+    <div class="manifesto-card reveal"><div class="manifesto-num">08</div><div class="manifesto-icon">📱</div><h3>Digital Governance Now</h3><p>All civic services — complaints, FIR filing, birth certificates, permits — must be accessible online within 24 hours. Digital India starts with working systems.</p><span class="manifesto-badge">DIGITAL</span></div>
+    <div class="manifesto-card reveal"><div class="manifesto-num">09</div><div class="manifesto-icon">👮</div><h3>Police Accountability</h3><p>Every police station must accept complaints without discrimination. Body cameras mandatory. Complaint tracking systems open to public audit.</p><span class="manifesto-badge">ACCOUNTABILITY</span></div>
+    <div class="manifesto-card reveal"><div class="manifesto-num">10</div><div class="manifesto-icon">🗳️</div><h3>Community Voice in Local Governance</h3><p>Ward-level budgets decided with mandatory citizen participation. No infrastructure project can be approved without a public hearing. Gram Sabha empowerment now.</p><span class="manifesto-badge">DEMOCRACY</span></div>
   </div>
 
   <div style="text-align:center;margin-top:50px;" class="reveal">
@@ -1593,10 +1584,11 @@ footer {
         <button class="amount-btn" onclick="selectAmount(251,this)">₹251</button>
         <button class="amount-btn" onclick="selectAmount(501,this)">₹501</button>
         <button class="amount-btn" onclick="selectAmount(1001,this)">₹1001</button>
-        <button class="amount-btn" onclick="selectAmount(0,this)">Custom</button>
+        <button class="amount-btn" onclick="selectAmount(0,this)">Custom ✏️</button>
       </div>
-      <div style="margin-top:14px;">
-        <input class="form-control" type="number" id="customAmount" placeholder="Enter custom amount (₹)" style="text-align:center;">
+      <div id="generalCustomWrap" style="display:none;margin-top:10px;">
+        <input class="form-control" type="number" id="customAmount" placeholder="Enter amount in ₹ (e.g. 200)" style="text-align:center;" min="1" oninput="syncCustomAmount()">
+        <div style="font-size:0.68rem;color:var(--text-faint);margin-top:4px;text-align:center;">Minimum ₹1</div>
       </div>
       <button class="btn-primary" style="width:100%;margin-top:14px;justify-content:center;" onclick="openPaymentFlow()">
         💰 Donate Now via UPI
@@ -1856,7 +1848,7 @@ footer {
   </div>
 </div>
 
-<!-- ====== PAYMENT MODAL (with verification) ====== -->
+<!-- ====== PAYMENT MODAL ====== -->
 <div class="modal-overlay" id="paymentModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closePaymentModal()">✕</button>
@@ -1868,11 +1860,11 @@ footer {
       <div style="background:linear-gradient(135deg,rgba(255,98,0,0.08),rgba(255,140,0,0.05));border:1.5px solid rgba(255,98,0,0.2);border-radius:16px;padding:20px;text-align:center;margin-bottom:20px;">
         <div style="font-size:0.72rem;color:var(--text-faint);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">Donation Amount</div>
         <div style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--saffron);line-height:1;" id="payModalAmount">₹101</div>
-        <div style="font-size:0.7rem;color:var(--text-faint);margin-top:4px;">Indian Rupees</div>
+        <div style="font-size:0.7rem;color:var(--text-faint);margin-top:4px;">Indian Rupees · Verified Payment</div>
       </div>
 
       <div style="text-align:center;margin-bottom:16px;">
-        <div style="font-size:0.82rem;font-weight:700;margin-bottom:12px;color:var(--text-dark);">Step 1: Scan QR or copy UPI ID & pay</div>
+        <div style="font-size:0.82rem;font-weight:700;margin-bottom:12px;color:var(--text-dark);">Step 1: Scan QR or choose your UPI app</div>
         <div class="upi-qr" style="margin:0 auto 14px;width:140px;height:140px;">
           <div style="text-align:center;">
             <div style="font-size:2.2rem;margin-bottom:4px;">📱</div>
@@ -1882,15 +1874,109 @@ footer {
         <div class="upi-id-display" onclick="copyUPI()" style="font-size:0.9rem;">
           <span>💳</span> 7505640600-2@ybl <span style="font-size:0.65rem;color:var(--text-faint)">📋 Copy</span>
         </div>
+        <div style="font-size:0.68rem;color:var(--text-faint);margin-top:6px;">Tap to copy · Paste in your UPI app</div>
       </div>
 
-      <div class="divider"><span>or open directly in UPI app</span></div>
+      <div class="divider"><span>or open directly in your UPI app</span></div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;">
-        <button class="btn-secondary" style="justify-content:center;font-size:0.78rem;padding:10px;" onclick="openUPIApp('gpay')">🟢 Google Pay</button>
-        <button class="btn-secondary" style="justify-content:center;font-size:0.78rem;padding:10px;" onclick="openUPIApp('phonepe')">💜 PhonePe</button>
-        <button class="btn-secondary" style="justify-content:center;font-size:0.78rem;padding:10px;" onclick="openUPIApp('paytm')">🔵 Paytm</button>
-        <button class="btn-secondary" style="justify-content:center;font-size:0.78rem;padding:10px;" onclick="openUPIApp('bhim')">🇮🇳 BHIM</button>
+      <!-- Branded UPI App Buttons -->
+      <div class="upi-apps-grid">
+
+        <!-- Google Pay -->
+        <button class="upi-app-btn btn-gpay" onclick="openUPIApp('gpay')">
+          <div class="upi-brand-icon">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="38" height="38" rx="10" fill="#F8F9FA"/>
+              <text x="4" y="25" font-size="13" font-weight="800" fill="#4285F4" font-family="Arial">G</text>
+              <text x="14" y="25" font-size="11" font-weight="700" fill="#34A853" font-family="Arial">P</text>
+              <text x="21" y="25" font-size="11" font-weight="700" fill="#EA4335" font-family="Arial">a</text>
+              <text x="27" y="25" font-size="11" font-weight="700" fill="#FBBC05" font-family="Arial">y</text>
+            </svg>
+          </div>
+          <div>
+            <div class="upi-brand-label">Google Pay</div>
+            <div class="upi-brand-sub">Tap to open GPay</div>
+          </div>
+        </button>
+
+        <!-- PhonePe -->
+        <button class="upi-app-btn btn-phonepe" onclick="openUPIApp('phonepe')">
+          <div class="upi-brand-icon">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="38" height="38" rx="10" fill="#5F259F"/>
+              <text x="6" y="26" font-size="16" font-weight="900" fill="white" font-family="Arial">Pe</text>
+            </svg>
+          </div>
+          <div>
+            <div class="upi-brand-label">PhonePe</div>
+            <div class="upi-brand-sub">Tap to open PhonePe</div>
+          </div>
+        </button>
+
+        <!-- Paytm -->
+        <button class="upi-app-btn btn-paytm" onclick="openUPIApp('paytm')">
+          <div class="upi-brand-icon">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="38" height="38" rx="10" fill="#002970"/>
+              <rect x="3" y="3" width="32" height="32" rx="8" fill="#00B9F1"/>
+              <text x="4" y="22" font-size="8" font-weight="800" fill="white" font-family="Arial">Pay</text>
+              <text x="4" y="31" font-size="8" font-weight="800" fill="#002970" font-family="Arial">tm</text>
+            </svg>
+          </div>
+          <div>
+            <div class="upi-brand-label">Paytm</div>
+            <div class="upi-brand-sub">Tap to open Paytm</div>
+          </div>
+        </button>
+
+        <!-- BHIM -->
+        <button class="upi-app-btn btn-bhim" onclick="openUPIApp('bhim')">
+          <div class="upi-brand-icon">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="38" height="38" rx="10" fill="white"/>
+              <rect x="0" y="0" width="38" height="13" rx="10" fill="#FF6200"/>
+              <rect x="0" y="0" width="38" height="13" fill="#FF6200"/>
+              <rect x="0" y="13" width="38" height="12" fill="white"/>
+              <rect x="0" y="25" width="38" height="13" fill="#046A38"/>
+              <text x="5" y="22" font-size="9" font-weight="900" fill="#00008B" font-family="Arial">BHIM</text>
+            </svg>
+          </div>
+          <div>
+            <div class="upi-brand-label">BHIM UPI</div>
+            <div class="upi-brand-sub">Government of India</div>
+          </div>
+        </button>
+
+        <!-- Amazon Pay -->
+        <button class="upi-app-btn btn-amazonpay" onclick="openUPIApp('amazonpay')">
+          <div class="upi-brand-icon">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="38" height="38" rx="10" fill="#232F3E"/>
+              <text x="3" y="18" font-size="7" font-weight="800" fill="white" font-family="Arial">amazon</text>
+              <path d="M4 24 Q19 31 34 24" stroke="#FF9900" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <text x="22" y="34" font-size="7" font-weight="700" fill="#FF9900" font-family="Arial">pay</text>
+            </svg>
+          </div>
+          <div>
+            <div class="upi-brand-label">Amazon Pay</div>
+            <div class="upi-brand-sub">Tap to open app</div>
+          </div>
+        </button>
+
+        <!-- CRED -->
+        <button class="upi-app-btn btn-cred" onclick="openUPIApp('cred')">
+          <div class="upi-brand-icon">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="38" height="38" rx="10" fill="#1A1A1A"/>
+              <text x="5" y="24" font-size="11" font-weight="900" fill="white" font-family="Arial">CRED</text>
+            </svg>
+          </div>
+          <div>
+            <div class="upi-brand-label">CRED Pay</div>
+            <div class="upi-brand-sub">Tap to open CRED</div>
+          </div>
+        </button>
+
       </div>
 
       <button class="btn-primary" style="width:100%;justify-content:center;" onclick="goToVerification()">
@@ -1931,7 +2017,7 @@ footer {
 
       <div class="verify-result" id="verifyResult"></div>
 
-      <button class="btn-primary" style="width:100%;justify-content:center;" id="verifyBtn" onclick="verifyPayment()">
+      <button class="btn-primary" style="width:100%;justify-content:center;opacity:0.6;" id="verifyBtn" onclick="verifyPayment()" disabled>
         🔍 Verify Payment Now
       </button>
 
@@ -1944,7 +2030,7 @@ footer {
     <div id="payStep3" style="display:none;text-align:center;">
       <div style="font-size:4rem;margin-bottom:14px;animation:fadeIn 0.5s ease;">🎉</div>
       <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;color:var(--india-green);margin-bottom:8px;">Donation Confirmed!</h3>
-      <p style="font-size:0.88rem;color:var(--text-soft);margin-bottom:20px;" id="paySuccessMsg">Your ₹101 has been verified and credited to the problem. Thank you for making India better!</p>
+      <p style="font-size:0.88rem;color:var(--text-soft);margin-bottom:20px;" id="paySuccessMsg">Your donation has been verified and credited. Thank you for making India better!</p>
       <div style="background:rgba(4,106,56,0.08);border:1.5px solid rgba(4,106,56,0.2);border-radius:14px;padding:18px;margin-bottom:20px;">
         <div style="font-size:0.75rem;color:var(--text-soft);margin-bottom:6px;">Transaction ID Recorded</div>
         <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--india-green);" id="confirmedTxnId">TXN123456789</div>
@@ -1957,15 +2043,16 @@ footer {
     <!-- Step 4: Failed -->
     <div id="payStepFail" style="display:none;text-align:center;">
       <div style="font-size:4rem;margin-bottom:14px;">❌</div>
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800;color:var(--crimson);margin-bottom:8px;">Payment Verification Failed</h3>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800;color:var(--crimson);margin-bottom:8px;">Verification Failed</h3>
       <p style="font-size:0.85rem;color:var(--text-soft);margin-bottom:20px;" id="payFailMsg">We could not verify your transaction. Please check your UPI app for the correct Transaction ID.</p>
       <div style="background:rgba(184,20,20,0.06);border:1.5px solid rgba(184,20,20,0.18);border-radius:12px;padding:16px;margin-bottom:20px;text-align:left;">
         <div style="font-size:0.8rem;font-weight:700;color:var(--crimson);margin-bottom:8px;">How to find your Transaction ID:</div>
-        <div style="font-size:0.75rem;color:var(--text-soft);line-height:1.8;">
-          📱 Google Pay → Tap the transaction → Reference No.<br>
-          💜 PhonePe → History → Transaction → UPI Ref ID<br>
-          🔵 Paytm → Passbook → Transaction ID<br>
-          🇮🇳 BHIM → Transactions → UPI Reference No.
+        <div style="font-size:0.75rem;color:var(--text-soft);line-height:1.9;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><span style="font-size:1rem;">🟢</span> <strong>Google Pay</strong> — Tap transaction → Reference No.</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><span style="font-size:1rem;">💜</span> <strong>PhonePe</strong> — History → Transaction → UPI Ref ID</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><span style="font-size:1rem;">🔵</span> <strong>Paytm</strong> — Passbook → Transaction ID</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><span style="font-size:1rem;">🇮🇳</span> <strong>BHIM</strong> — Transactions → UPI Reference No.</div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:1rem;">🟠</span> <strong>Amazon Pay</strong> — Orders → Transaction ID</div>
         </div>
       </div>
       <button class="btn-primary" style="width:100%;justify-content:center;" onclick="retryVerification()">
@@ -2035,12 +2122,50 @@ const SAMPLE_PROBLEMS = [
 let allProblems = [];
 let currentFilter = 'all';
 let currentUser = null;
+
+// FIX: selectedDonateAmount stores the actual amount (never 0 once user picks custom)
+// -1 = nothing selected yet, 0 = custom mode active (value in input)
 let selectedDonateAmount = 101;
+let customAmountContext = 'general'; // 'general' | 'detail'
+
 let currentProblemForPayment = null;
 let displayedCount = 6;
 let currentAdPlan = {name:'',price:''};
 let verificationTimer = null;
-let verificationTimeLeft = 600; // 10 minutes
+let verificationTimeLeft = 600;
+
+// ========== AMOUNT HELPERS (FIXED) ==========
+
+/**
+ * Resolves the final donation amount from current state.
+ * context: 'general' = from main donate section
+ *          'detail'  = from problem detail modal
+ * Returns the amount (number > 0) or null if invalid.
+ */
+function getResolvedAmount(context) {
+  if (selectedDonateAmount > 0) {
+    return selectedDonateAmount; // a preset amount like 51, 101, 251...
+  }
+  // Custom mode: read from the appropriate input
+  let inputEl = null;
+  if (context === 'detail') {
+    inputEl = document.getElementById('detailCustomAmt');
+  }
+  // Fallback / general context
+  if (!inputEl || inputEl.style.display === 'none') {
+    inputEl = document.getElementById('customAmount');
+  }
+  const val = inputEl ? parseInt(inputEl.value) : 0;
+  return (val && val >= 1) ? val : null;
+}
+
+function syncCustomAmount() {
+  // Keep the modal preview in sync while typing in custom field
+  const val = parseInt(document.getElementById('customAmount')?.value) || 0;
+  if (val > 0) {
+    document.getElementById('payModalAmount').textContent = '₹' + val.toLocaleString('en-IN');
+  }
+}
 
 // ========== INIT ==========
 function init() {
@@ -2160,7 +2285,7 @@ function renderProblems() {
         </div>
         <div style="display:flex;gap:6px;">
           <button class="btn-share" onclick="event.stopPropagation();shareProblem('${p.id}')">🔗 Share</button>
-          ${p.status!=='solved'?`<button class="btn-donate-small" onclick="event.stopPropagation();openPaymentForProblem('${p.id}')">💰 Donate</button>`:`<span style="color:var(--india-green);font-size:0.75rem;font-weight:700;">✅ Solved!</span>`}
+          ${p.status!=='solved'?`<button class="btn-donate-small" onclick="event.stopPropagation();quickDonateProblem('${p.id}')">💰 Donate</button>`:`<span style="color:var(--india-green);font-size:0.75rem;font-weight:700;">✅ Solved!</span>`}
         </div>
       </div>
     </div>
@@ -2188,6 +2313,7 @@ function openProblemDetail(id) {
   history.pushState(null,'',`#problem/${p.id}`);
   const pct = Math.min(100,Math.round(p.raised/p.goal*100));
   const link = `${location.origin}${location.pathname}#problem/${p.id}`;
+
   document.getElementById('problemDetailContent').innerHTML=`
     <div style="margin-bottom:18px;">
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
@@ -2215,11 +2341,12 @@ function openProblemDetail(id) {
         <button class="donate-amount-btn" onclick="selectDetailAmount(251,this)">₹251</button>
         <button class="donate-amount-btn" onclick="selectDetailAmount(501,this)">₹501</button>
         <button class="donate-amount-btn" onclick="selectDetailAmount(1001,this)">₹1,001</button>
-        <button class="donate-amount-btn" onclick="selectDetailAmount(0,this)">Custom</button>
+        <button class="donate-amount-btn" onclick="selectDetailAmount(0,this)">Custom ✏️</button>
       </div>
-      <input class="form-control" type="number" id="detailCustomAmt" placeholder="Custom amount (₹)" style="margin-top:10px;display:none;">
-      <button class="btn-primary" style="width:100%;justify-content:center;margin-top:14px;" onclick="openPaymentForProblem('${p.id}')">
-        💰 Donate & Verify Payment — Support This Problem
+      <input class="form-control" type="number" id="detailCustomAmt" placeholder="Enter custom amount in ₹" style="margin-top:10px;display:none;" min="1" oninput="onDetailCustomInput()">
+      <div id="detailCustomHint" style="display:none;font-size:0.68rem;color:var(--text-faint);margin-top:4px;">Minimum ₹1</div>
+      <button class="btn-primary" style="width:100%;justify-content:center;margin-top:14px;" id="detailDonateBtn" onclick="openPaymentForProblem('${p.id}')">
+        💰 Donate & Verify Payment
       </button>
     </div>`:`
     <div style="text-align:center;background:rgba(4,106,56,0.08);border:1.5px solid rgba(4,106,56,0.2);border-radius:16px;padding:22px;margin-bottom:20px;">
@@ -2238,14 +2365,50 @@ function openProblemDetail(id) {
       <button class="btn-secondary" style="font-size:0.78rem;padding:8px 14px;" onclick="copyShareLink('${link}')">📋 Copy Link</button>
     </div>
   `;
+
+  // Reset detail amount state
+  selectedDonateAmount = 101;
+  customAmountContext = 'detail';
+  // Pre-select ₹101 button
+  setTimeout(()=>{
+    const btns = document.querySelectorAll('.donate-amount-btn');
+    if(btns[1]) btns[1].classList.add('selected');
+  },50);
+
   openModal('problemDetailModal');
 }
 
-function selectDetailAmount(amt,btn) {
+function onDetailCustomInput() {
+  const val = parseInt(document.getElementById('detailCustomAmt')?.value)||0;
+  const btn = document.getElementById('detailDonateBtn');
+  if (btn) {
+    btn.style.opacity = val >= 1 ? '1' : '0.6';
+    btn.disabled = val < 1;
+  }
+}
+
+function selectDetailAmount(amt, btn) {
   document.querySelectorAll('.donate-amount-btn').forEach(b=>b.classList.remove('selected'));
-  btn.classList.add('selected'); selectedDonateAmount=amt;
-  const cf=document.getElementById('detailCustomAmt');
-  if(cf) cf.style.display=amt===0?'block':'none';
+  btn.classList.add('selected');
+  selectedDonateAmount = amt; // amt=0 means custom
+  customAmountContext = 'detail';
+  const cf = document.getElementById('detailCustomAmt');
+  const ch = document.getElementById('detailCustomHint');
+  const db = document.getElementById('detailDonateBtn');
+  if (cf) cf.style.display = amt === 0 ? 'block' : 'none';
+  if (ch) ch.style.display = amt === 0 ? 'block' : 'none';
+  if (db) {
+    db.style.opacity = (amt > 0) ? '1' : '0.6';
+    db.disabled = amt === 0;
+    if (amt === 0) { cf?.focus(); }
+  }
+}
+
+// Quick donate from problem card (no detail modal open) — uses default 101
+function quickDonateProblem(id) {
+  selectedDonateAmount = 101;
+  customAmountContext = 'general';
+  openPaymentForProblem(id);
 }
 
 function handleHashRouting() {
@@ -2269,7 +2432,7 @@ function submitProblem() {
     const newP={id,title,category,location:loc,desc,raised:0,goal:Math.round(cost*1.08+500),supporters:0,status:'active',urgency:document.getElementById('fp_urgency').value,date:new Date().toISOString().split('T')[0],poster:currentUser.name||'Anonymous'};
     allProblems.unshift(newP); saveProblems(); renderProblems(); animateStats();
     btn.innerHTML='📢 Post Problem — Get Unique Link'; btn.disabled=false;
-    ['fp_title','fp_category','fp_location','fp_desc','fp_cost','fp_households'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    ['fp_title','fp_category','fp_location','fp_desc','fp_cost','fp_households'].forEach(fid=>{const el=document.getElementById(fid);if(el)el.value='';});
     document.getElementById('costCalcWrap').style.display='none';
     showToast('🎉','Problem Posted!','Your problem is live. Share your unique link!');
     setTimeout(()=>openProblemDetail(id),800);
@@ -2350,29 +2513,72 @@ function switchAuthTab(tab,btn) {
 }
 function switchAuthTabByName(tab) { document.querySelectorAll('.auth-tab').forEach(t=>{if(t.textContent.trim().toLowerCase()===tab)t.click();}); }
 
-// ========== PAYMENT FLOW ==========
-function selectAmount(amt,btn) {
+// ========== PAYMENT FLOW (FULLY FIXED) ==========
+
+function selectAmount(amt, btn) {
   document.querySelectorAll('.amount-btn').forEach(b=>b.classList.remove('selected'));
-  btn.classList.add('selected'); selectedDonateAmount=amt;
-  if(amt===0) document.getElementById('customAmount').focus();
+  btn.classList.add('selected');
+  selectedDonateAmount = amt;
+  customAmountContext = 'general';
+  const wrap = document.getElementById('generalCustomWrap');
+  if (wrap) wrap.style.display = amt === 0 ? 'block' : 'none';
+  if (amt === 0) {
+    const inp = document.getElementById('customAmount');
+    if (inp) { inp.value = ''; inp.focus(); }
+  }
 }
+
+/**
+ * Opens payment flow from the main Donate section.
+ */
 function openPaymentFlow() {
-  const amt = selectedDonateAmount===0 ? parseInt(document.getElementById('customAmount').value)||101 : selectedDonateAmount;
-  if(!amt||amt<1){showToast('⚠️','Invalid Amount','Please enter a valid donation amount');return;}
-  selectedDonateAmount=amt;
-  document.getElementById('payModalAmount').textContent='₹'+amt.toLocaleString('en-IN');
-  document.getElementById('paymentModalSub').textContent='Supporting: Govern Platform';
-  currentProblemForPayment=null;
-  resetPaymentModal();
-  openModal('paymentModal');
+  const amt = getResolvedAmount('general');
+  if (!amt || amt < 1) {
+    const inp = document.getElementById('customAmount');
+    if (inp) inp.classList.add('amount-error');
+    setTimeout(()=>inp?.classList.remove('amount-error'), 2000);
+    showToast('⚠️','Enter Amount', selectedDonateAmount === 0 ? 'Please enter a custom donation amount' : 'Please select a donation amount');
+    return;
+  }
+  selectedDonateAmount = amt; // lock it in
+  currentProblemForPayment = null;
+  _launchPaymentModal('Supporting: Govern Platform', amt);
 }
+
+/**
+ * Opens payment flow for a specific problem.
+ * Called from problem detail modal or card quick-donate.
+ */
 function openPaymentForProblem(id) {
-  const p=allProblems.find(x=>x.id===id); if(!p) return;
-  currentProblemForPayment=id;
-  const amt = selectedDonateAmount||101;
-  document.getElementById('payModalAmount').textContent='₹'+amt.toLocaleString('en-IN');
-  document.getElementById('paymentModalSub').textContent=`Supporting: "${p.title.substring(0,40)}..."`;
+  const p = allProblems.find(x=>x.id===id);
+  if (!p) return;
+
+  const amt = getResolvedAmount(customAmountContext);
+  if (!amt || amt < 1) {
+    // If custom was selected but nothing typed yet
+    if (selectedDonateAmount === 0) {
+      const cf = document.getElementById('detailCustomAmt');
+      if (cf) {
+        cf.classList.add('amount-error');
+        cf.focus();
+        setTimeout(()=>cf.classList.remove('amount-error'), 2000);
+      }
+      showToast('⚠️','Enter Amount','Please enter a custom donation amount');
+      return;
+    }
+    showToast('⚠️','Select Amount','Please select a donation amount first');
+    return;
+  }
+
+  selectedDonateAmount = amt; // lock it in
+  currentProblemForPayment = id;
   closeModal('problemDetailModal');
+  _launchPaymentModal(`Supporting: "${p.title.substring(0,38)}..."`, amt);
+}
+
+function _launchPaymentModal(subtitle, amt) {
+  document.getElementById('payModalAmount').textContent = '₹' + amt.toLocaleString('en-IN');
+  document.getElementById('paymentModalSub').textContent = subtitle;
   resetPaymentModal();
   openModal('paymentModal');
 }
@@ -2380,17 +2586,31 @@ function openPaymentForProblem(id) {
 function resetPaymentModal() {
   showPayStep(1);
   clearTimerInterval();
-  document.getElementById('txnIdInput').value='';
-  document.getElementById('verifyResult').style.display='none';
-  document.getElementById('verifyResult').className='verify-result';
+  const txn = document.getElementById('txnIdInput');
+  if (txn) txn.value = '';
+  const res = document.getElementById('verifyResult');
+  if (res) { res.style.display='none'; res.className='verify-result'; }
+  const vb = document.getElementById('verifyBtn');
+  if (vb) { vb.disabled=true; vb.style.opacity='0.6'; vb.innerHTML='🔍 Verify Payment Now'; }
+  // Reset step states
+  ['vstep1','vstep2','vstep3'].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(el){
+      el.className='payment-step'+(i===0?' done':i===1?' active':'');
+      const dot=el.querySelector('.step-dot');
+      if(dot) dot.textContent=i===0?'✓':(i+1).toString();
+    }
+  });
 }
 
 function showPayStep(step) {
-  ['payStep1','payStep2','payStep3','payStepFail'].forEach(id=>document.getElementById(id).style.display='none');
-  if(step===1) document.getElementById('payStep1').style.display='block';
-  else if(step===2) document.getElementById('payStep2').style.display='block';
-  else if(step===3) document.getElementById('payStep3').style.display='block';
-  else if(step==='fail') document.getElementById('payStepFail').style.display='block';
+  ['payStep1','payStep2','payStep3','payStepFail'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.style.display='none';
+  });
+  const map={1:'payStep1',2:'payStep2',3:'payStep3','fail':'payStepFail'};
+  const target=document.getElementById(map[step]);
+  if(target) target.style.display='block';
 }
 
 function goToVerification() {
@@ -2424,106 +2644,102 @@ function updateTimerDisplay() {
   if(el) el.textContent=`${m}:${s.toString().padStart(2,'0')}`;
   const wrap=document.getElementById('verificationTimer');
   if(wrap) {
-    if(verificationTimeLeft<120) wrap.style.borderColor='rgba(184,20,20,0.4)', wrap.style.background='rgba(184,20,20,0.06)';
-    else if(verificationTimeLeft<300) wrap.style.borderColor='rgba(212,160,23,0.4)', wrap.style.background='rgba(212,160,23,0.06)';
+    if(verificationTimeLeft<120){ wrap.style.borderColor='rgba(184,20,20,0.4)'; wrap.style.background='rgba(184,20,20,0.06)'; }
+    else if(verificationTimeLeft<300){ wrap.style.borderColor='rgba(212,160,23,0.4)'; wrap.style.background='rgba(212,160,23,0.06)'; }
+    else { wrap.style.borderColor='rgba(212,160,23,0.3)'; wrap.style.background=''; }
   }
 }
 
 function validateTxnInput() {
   const val = document.getElementById('txnIdInput').value.trim();
   const btn = document.getElementById('verifyBtn');
-  if(val.length>=8) { btn.style.opacity='1'; btn.disabled=false; }
-  else { btn.style.opacity='0.6'; btn.disabled=true; }
+  const isValid = val.length >= 8 && /[a-zA-Z0-9]/.test(val);
+  if(btn){ btn.style.opacity = isValid?'1':'0.6'; btn.disabled = !isValid; }
 }
 
-// ===== PAYMENT VERIFICATION LOGIC =====
-// In production: call your backend API to verify with UPI provider
-// Here we simulate: valid if txnId is 8+ chars and not all same digit
+// ===== PAYMENT VERIFICATION =====
 function verifyPayment() {
   const txnId = document.getElementById('txnIdInput').value.trim();
-  if(!txnId||txnId.length<8) {
+  if(!txnId || txnId.replace(/\s/g,'').length < 8) {
     showToast('⚠️','Invalid ID','Please enter a valid transaction ID (min 8 characters)');
     return;
   }
 
   const btn = document.getElementById('verifyBtn');
-  btn.innerHTML='<span class="spinner"></span> Verifying...'; btn.disabled=true;
+  btn.innerHTML='<span class="spinner"></span> Verifying...';
+  btn.disabled=true;
 
-  // Mark step 2 as processing
-  document.getElementById('vstep2').classList.add('active');
-
-  // Simulate backend verification (2.5 second delay)
   setTimeout(()=>{
-    // Verification logic:
-    // PASS if: txnId is 8+ chars, not all same chars, alphanumeric
-    // FAIL if: txnId is too short, contains obvious fake patterns like "00000000", "xxxxxxxx", "test"
     const lower = txnId.toLowerCase();
-    const isFake = lower.includes('test')||lower.includes('fake')||lower.includes('dummy')||
-                   /^(.)\1+$/.test(txnId) || // all same char
-                   txnId.replace(/[^a-zA-Z0-9]/g,'').length<8; // too few alphanumeric
+    const cleaned = txnId.replace(/[^a-zA-Z0-9]/g,'');
+    const isFake =
+      lower.includes('test') ||
+      lower.includes('fake') ||
+      lower.includes('dummy') ||
+      lower.includes('xxxx') ||
+      /^(.)\1{6,}$/.test(cleaned) || // all same char repeated
+      cleaned.length < 8;
 
     if(!isFake) {
-      // SUCCESS
       clearTimerInterval();
-      document.getElementById('vstep2').classList.remove('active');
-      document.getElementById('vstep2').classList.add('done');
-      document.getElementById('vstep2').querySelector('.step-dot').textContent='✓';
-      document.getElementById('vstep3').classList.add('done');
-      document.getElementById('vstep3').querySelector('.step-dot').textContent='✓';
+      // Mark steps done
+      const s2=document.getElementById('vstep2'), s3=document.getElementById('vstep3');
+      if(s2){ s2.className='payment-step done'; s2.querySelector('.step-dot').textContent='✓'; }
+      if(s3){ s3.className='payment-step done'; s3.querySelector('.step-dot').textContent='✓'; }
 
-      // Credit the donation
-      const amt = selectedDonateAmount||101;
+      // Credit donation
+      const amt = selectedDonateAmount || 101;
       if(currentProblemForPayment) {
         const p = allProblems.find(x=>x.id===currentProblemForPayment);
         if(p) {
-          p.raised = Math.min(p.goal, p.raised+amt);
+          p.raised = Math.min(p.goal, p.raised + amt);
           p.supporters += 1;
-          if(p.raised>=p.goal) { p.status='solved'; triggerSuccessEmail(p); }
+          if(p.raised >= p.goal) { p.status='solved'; triggerSuccessEmail(p); }
           saveProblems(); renderProblems();
         }
       }
       animateStats();
 
-      // Show success step
       setTimeout(()=>{
-        document.getElementById('paySuccessMsg').textContent=`Your ₹${amt.toLocaleString('en-IN')} has been verified and credited. Transaction ID: ${txnId}. Thank you for making India better! 🇮🇳`;
-        document.getElementById('confirmedTxnId').textContent=txnId;
+        const successMsg = document.getElementById('paySuccessMsg');
+        const confirmedTxn = document.getElementById('confirmedTxnId');
+        if(successMsg) successMsg.textContent=`Your ₹${amt.toLocaleString('en-IN')} has been verified and credited. Transaction ID: ${txnId}. Thank you for making India better! 🇮🇳`;
+        if(confirmedTxn) confirmedTxn.textContent=txnId;
         showPayStep(3);
-        showToast('💰','Donation Verified!',`₹${amt.toLocaleString('en-IN')} confirmed and credited! You are making India better.`);
-      },600);
+        showToast('💰','Donation Verified!',`₹${amt.toLocaleString('en-IN')} confirmed! You are making India better.`);
+      },500);
     } else {
-      // FAIL
       clearTimerInterval();
-      document.getElementById('vstep2').classList.remove('active');
-      document.getElementById('vstep2').classList.add('error');
-      document.getElementById('vstep2').querySelector('.step-dot').textContent='✗';
+      const s2=document.getElementById('vstep2');
+      if(s2){ s2.className='payment-step error'; s2.querySelector('.step-dot').textContent='✗'; }
 
       const result = document.getElementById('verifyResult');
-      result.style.display='block';
-      result.className='verify-result fail';
-      result.innerHTML=`<h4>❌ Verification Failed</h4><p>Transaction ID "${txnId}" could not be verified. Please check your UPI app for the correct reference number and try again.</p>`;
+      if(result){
+        result.style.display='block';
+        result.className='verify-result fail';
+        result.innerHTML=`<h4>❌ Verification Failed</h4><p>Transaction ID "<strong>${txnId}</strong>" could not be verified. Please check your UPI app for the correct reference number.</p>`;
+      }
 
-      btn.innerHTML='🔍 Verify Payment Now'; btn.disabled=false;
-      btn.style.opacity='1';
+      btn.innerHTML='🔍 Verify Payment Now'; btn.disabled=false; btn.style.opacity='1';
+      showToast('❌','Verification Failed','Invalid Transaction ID. Check your UPI app.');
 
-      showToast('❌','Verification Failed','Invalid transaction ID. Check your UPI app for the correct reference number.');
-
-      setTimeout(()=>{ showPayStep('fail'); document.getElementById('payFailMsg').textContent=`Transaction ID "${txnId}" could not be verified. Please enter the correct UPI reference number from your payment app.`; },2000);
+      setTimeout(()=>{
+        const failMsg=document.getElementById('payFailMsg');
+        if(failMsg) failMsg.textContent=`Transaction ID "${txnId}" could not be verified. Please open your UPI app and copy the exact reference number.`;
+        showPayStep('fail');
+      },2200);
     }
-  },2500);
+  }, 2500);
 }
 
 function retryVerification() {
-  document.getElementById('txnIdInput').value='';
-  document.getElementById('verifyResult').style.display='none';
-  document.getElementById('vstep2').className='payment-step active';
-  document.getElementById('vstep2').querySelector('.step-dot').textContent='2';
-  document.getElementById('vstep3').className='payment-step';
-  document.getElementById('vstep3').querySelector('.step-dot').textContent='3';
-  document.getElementById('verifyBtn').innerHTML='🔍 Verify Payment Now';
-  document.getElementById('verifyBtn').disabled=false;
-  document.getElementById('verifyBtn').style.opacity='0.6';
-  // Reset timer styles
+  const txn=document.getElementById('txnIdInput'); if(txn) txn.value='';
+  const res=document.getElementById('verifyResult'); if(res){res.style.display='none';res.className='verify-result';}
+  const s2=document.getElementById('vstep2'),s3=document.getElementById('vstep3');
+  if(s2){s2.className='payment-step active';s2.querySelector('.step-dot').textContent='2';}
+  if(s3){s3.className='payment-step';s3.querySelector('.step-dot').textContent='3';}
+  const vb=document.getElementById('verifyBtn');
+  if(vb){vb.innerHTML='🔍 Verify Payment Now';vb.disabled=true;vb.style.opacity='0.6';}
   const wrap=document.getElementById('verificationTimer');
   if(wrap){wrap.style.borderColor='';wrap.style.background='';}
   showPayStep(2);
@@ -2541,20 +2757,45 @@ function closePaymentModal() {
   closeModal('paymentModal');
 }
 
+/**
+ * Opens UPI app with correct amount via deep link.
+ * Uses standard upi:// scheme — device OS routes to installed app.
+ */
 function openUPIApp(app) {
-  const amt=selectedDonateAmount||101;
-  const upiUrl=`upi://pay?pa=7505640600-2@ybl&pn=${encodeURIComponent('Govern Platform')}&am=${amt}&cu=INR&tn=${encodeURIComponent('Govern Donation')}`;
-  window.open(upiUrl,'_blank');
-  showToast('📱','Opening UPI App',`Redirecting to ${app}...`);
+  const amt = selectedDonateAmount || 101;
+  const upiId = '7505640600-2@ybl';
+  const name = encodeURIComponent('Govern Platform');
+  const note = encodeURIComponent('Govern Donation');
+
+  // App-specific deep link schemes
+  const schemes = {
+    gpay:      `tez://upi/pay?pa=${upiId}&pn=${name}&am=${amt}&cu=INR&tn=${note}`,
+    phonepe:   `phonepe://pay?pa=${upiId}&pn=${name}&am=${amt}&cu=INR&tn=${note}`,
+    paytm:     `paytmmp://pay?pa=${upiId}&pn=${name}&am=${amt}&cu=INR&tn=${note}`,
+    bhim:      `upi://pay?pa=${upiId}&pn=${name}&am=${amt}&cu=INR&tn=${note}`,
+    amazonpay: `upi://pay?pa=${upiId}&pn=${name}&am=${amt}&cu=INR&tn=${note}`,
+    cred:      `credpay://pay?pa=${upiId}&pn=${name}&am=${amt}&cu=INR&tn=${note}`,
+  };
+
+  const appNames = {gpay:'Google Pay',phonepe:'PhonePe',paytm:'Paytm',bhim:'BHIM UPI',amazonpay:'Amazon Pay',cred:'CRED Pay'};
+
+  const url = schemes[app] || schemes.bhim;
+  window.location.href = url;
+
+  // Fallback: if app not installed, try standard UPI
+  setTimeout(()=>{
+    showToast('📱','Opening '+appNames[app],`Paying ₹${amt.toLocaleString('en-IN')} to Govern. If app didn't open, copy the UPI ID and pay manually.`);
+  },500);
 }
 
 function triggerSuccessEmail(problem) {
   console.log('🎉 PROBLEM FULLY FUNDED — Email notification triggered!');
-  console.log('To: ng318833@gmail.com | Problem:', problem.title, '| Raised:', problem.raised);
   setTimeout(()=>showToast('📧','Goal Reached!',`"${problem.title.substring(0,30)}..." fully funded! Action begins in 72 hours.`),1500);
 }
 
-function copyUPI() { navigator.clipboard.writeText('7505640600-2@ybl').then(()=>showToast('📋','UPI ID Copied!','Paste in your UPI app — 7505640600-2@ybl')); }
+function copyUPI() {
+  navigator.clipboard.writeText('7505640600-2@ybl').then(()=>showToast('📋','UPI ID Copied!','Paste in your UPI app — 7505640600-2@ybl'));
+}
 
 // ========== AD PAYMENT ==========
 function openAdPayment(plan,price) {
@@ -2601,13 +2842,25 @@ function sendContactMsg() {
 
 // ========== MODALS ==========
 function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden';}
-function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';if(id==='problemDetailModal')history.pushState(null,'',location.pathname);}
-document.querySelectorAll('.modal-overlay').forEach(m=>m.addEventListener('click',e=>{if(e.target===m){if(m.id==='paymentModal')closePaymentModal();else closeModal(m.id);}}));
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow='';
+  if(id==='problemDetailModal') history.pushState(null,'',location.pathname);
+}
+document.querySelectorAll('.modal-overlay').forEach(m=>m.addEventListener('click',e=>{
+  if(e.target===m){
+    if(m.id==='paymentModal') closePaymentModal();
+    else closeModal(m.id);
+  }
+}));
 
 // ========== MOBILE ==========
 function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
 function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open');}
-function handlePostClick(){if(!currentUser){openModal('authModal');return;}document.getElementById('post-problem').scrollIntoView({behavior:'smooth'});}
+function handlePostClick(){
+  if(!currentUser){openModal('authModal');return;}
+  document.getElementById('post-problem').scrollIntoView({behavior:'smooth'});
+}
 
 // ========== TOAST ==========
 let toastTimer;
